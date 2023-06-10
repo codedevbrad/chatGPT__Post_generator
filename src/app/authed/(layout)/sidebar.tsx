@@ -2,13 +2,12 @@
 
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, Cog6ToothIcon, HomeIcon, UsersIcon, XMarkIcon, } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, Cog6ToothIcon, HomeIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 
 import UserAvatar from './profile';
 
 const navigation = [
-  { name: 'Dashboard', href: '/authed/dashboard', icon: HomeIcon, current: true },
-  { name: 'Chat',      href: '/authed/chat', icon: UsersIcon, current: false },
+  { name: 'Generate', href: '/authed/generate', icon: HomeIcon, current: true }
 ]
 
 const userNavigation = [

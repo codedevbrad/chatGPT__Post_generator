@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  , "src/pages/api/example/getExample.js", "src/app/authed/(components)"  ],
+  , "src/pages/api/example/getExample.js", "src/app/authed/(components)", "src/app/hey/api/route.ts"  ],
   "exclude": [
     "node_modules"
   ]
