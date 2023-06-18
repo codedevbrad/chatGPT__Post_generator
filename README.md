@@ -11,7 +11,9 @@
 ### request
 Method: POST
 Headers:
+
 Authorization: (none for now)
+
 Body:
 ```javascript
 {
