@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 async function sendMessage( message , style ) {
-  const apiKey = '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';
+  const apiKey = process.env.OPENAI_CREDS;
   const url = 'https://api.openai.com/v1/chat/completions';
 
   try {
