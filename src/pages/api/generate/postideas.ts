@@ -16,14 +16,13 @@ async function sendMessage( message , style ) {
         'model': 'gpt-3.5-turbo',
         'messages': [
           { 'role': 'user', 
-            "content": `generate social media post ideas, ${message}. try to use emojis and add a ${ style }to the writing` 
+            "content": `generate social media post ideas, ${message}. try to use emojis and add a ${ style }to the writing. give hashtags also` 
         }],
-        'n': 5
+        'n': 1
       }),
     });
 
     const data = await response.json();
-    console.log('Response:', data.choices );
     return data.choices;
   } 
   catch (error) {
@@ -32,13 +31,19 @@ async function sendMessage( message , style ) {
   }
 }
 
+
 export default async function handler( req: NextApiRequest, res: NextApiResponse ) {
 
   let { generateIdea , style } = req.body;
 
   try {
     const fetchResponse = await sendMessage( generateIdea , style );
-    return res.status(200).json( fetchResponse );
+    let GPT_generated = fetchResponse[0].message.content;
+    
+    const lines = GPT_generated.split('\n').filter(line => line.trim() !== '');
+    const resultArray = lines.map(line => line.replace(/^\d+\.\s*/, ''));
+
+    return res.status(200).json({ generated : resultArray });
   }
   catch ( err ) {
     console.log( err.message );

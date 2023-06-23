@@ -1,4 +1,4 @@
-import GenerateComponent from "./generatePosts/index"
+import GenerateComponent from "./generatePosts"
 
 export default async function Generate () {
   return (

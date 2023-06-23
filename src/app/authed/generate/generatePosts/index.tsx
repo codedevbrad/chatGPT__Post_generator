@@ -3,8 +3,6 @@ import React, { useState, Fragment } from 'react';
 import { FaceFrownIcon, FaceSmileIcon, FireIcon, HandThumbUpIcon, HeartIcon, XMarkIcon, } from '@heroicons/react/20/solid'
 import { Listbox, Transition } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-
 
 const moods = [
   { name: 'Excited', value: 'excited', icon: FireIcon, iconColor: 'text-white', bgColor: 'bg-red-500' },
@@ -15,6 +13,7 @@ const moods = [
   { name: 'I feel nothing', value: null, icon: XMarkIcon, iconColor: 'text-gray-400', bgColor: 'bg-transparent' },
 ]
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -22,8 +21,9 @@ function classNames(...classes) {
 
 export default function GenerateComponent( ) {
   const [selected, setSelected] = useState(moods[5]);
-
   const [textValue, setTextValue] = useState('');
+
+  // const { setGeneration } = useAuthedGlobalContext();
 
   const router = useRouter();
 
@@ -34,9 +34,13 @@ export default function GenerateComponent( ) {
   const generateFromPost = ( e ) => {
     e.preventDefault();
     if ( textValue.length > 0 ) {
-       router.push( '/authed/generate/id2' );
+      // setGeneration({
+      //   query: 'textValue',
+      //   mood: 'selected.name'
+      // });
+      router.push( '/authed/generate/id2' );
     } else {
-       console.log('preventing bad generate')
+      console.log('preventing bad generate')
     }
     console.log('submitted and generating' , selected , textValue );
   }

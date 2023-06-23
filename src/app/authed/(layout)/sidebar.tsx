@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, Cog6ToothIcon, HomeIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 
-import UserAvatar from './profile';
+import UserAvatar from '../(clerk)/profile';
 
 const navigation = [
   { name: 'Generate', href: '/authed/generate', icon: HomeIcon, current: true }
