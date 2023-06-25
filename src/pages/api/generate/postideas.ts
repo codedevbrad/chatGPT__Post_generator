@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-async function sendMessage( message , style ) {
+async function sendMessage( query , mood ) {
   const apiKey = process.env.OPENAI_CREDS;
   const url = 'https://api.openai.com/v1/chat/completions';
 
@@ -16,7 +16,10 @@ async function sendMessage( message , style ) {
         'model': 'gpt-3.5-turbo',
         'messages': [
           { 'role': 'user', 
-            "content": `generate social media post ideas, ${message}. try to use emojis and add a ${ style }to the writing. give hashtags also` 
+            "content": 
+               `generate social media post ideas, ${query}. 
+                try to use emojis and add a ${ mood }to the writing. 
+                give hashtags also` 
         }],
         'n': 1
       }),
@@ -34,10 +37,12 @@ async function sendMessage( message , style ) {
 
 export default async function handler( req: NextApiRequest, res: NextApiResponse ) {
 
-  let { generateIdea , style } = req.body;
+  let { searchQuery } = req.body;
+
+  let { query , mood } = searchQuery;
 
   try {
-    const fetchResponse = await sendMessage( generateIdea , style );
+    const fetchResponse = await sendMessage( query , mood );
     let GPT_generated = fetchResponse[0].message.content;
     
     const lines = GPT_generated.split('\n').filter(line => line.trim() !== '');

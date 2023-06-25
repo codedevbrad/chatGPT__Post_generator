@@ -1,13 +1,13 @@
-export default async function makeGeneratedPosts({ generateIdea , style }): Promise<any> {
-    const res = await fetch(`${ process.env.BASE_URL }/api/generate/postideas` , { 
+export default async function makeGeneratedPosts({ searchQuery }): Promise<any> {
+
+    const res = await fetch(`/api/generate/postideas` , { 
       cache: "no-store" ,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        generateIdea,
-        style: 'creative'
+        searchQuery
       })
     });
     if ( !res.ok ) {

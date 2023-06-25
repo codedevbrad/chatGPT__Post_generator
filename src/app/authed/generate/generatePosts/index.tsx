@@ -1,63 +1,70 @@
 'use client'
-import React, { useState, Fragment } from 'react';
-import { FaceFrownIcon, FaceSmileIcon, FireIcon, HandThumbUpIcon, HeartIcon, XMarkIcon, } from '@heroicons/react/20/solid'
+import React, { useState, Fragment , useContext } from 'react';
+import { FaceSmileIcon } from '@heroicons/react/20/solid'
 import { Listbox, Transition } from '@headlessui/react';
-import { useRouter } from 'next/navigation';
-
-const moods = [
-  { name: 'Excited', value: 'excited', icon: FireIcon, iconColor: 'text-white', bgColor: 'bg-red-500' },
-  { name: 'Loved', value: 'loved', icon: HeartIcon, iconColor: 'text-white', bgColor: 'bg-pink-400' },
-  { name: 'Happy', value: 'happy', icon: FaceSmileIcon, iconColor: 'text-white', bgColor: 'bg-green-400' },
-  { name: 'Sad', value: 'sad', icon: FaceFrownIcon, iconColor: 'text-white', bgColor: 'bg-yellow-400' },
-  { name: 'Thumbsy', value: 'thumbsy', icon: HandThumbUpIcon, iconColor: 'text-white', bgColor: 'bg-blue-500' },
-  { name: 'I feel nothing', value: null, icon: XMarkIcon, iconColor: 'text-gray-400', bgColor: 'bg-transparent' },
-]
+import classNames from '@/app/utils/classNames';
+import { moods } from './moods'
+import { GenerationContext } from '../context';
 
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+function SearchButtonComponent ( ) {
+  
+  const { generationState } = useContext(GenerationContext);
+
+  return (
+    <div className="flex-shrink-0">
+      <button
+        type="submit"
+        className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+         { !generationState ? 'Generate ideas' : 'Generating ideas' }
+      </button>
+    </div> 
+  )
 }
 
 
-export default function GenerateComponent( ) {
-  const [selected, setSelected] = useState(moods[5]);
+export default function GenerateComponent( { setData } ) {
+  const [selected, setSelected] = useState(moods[ moods.length - 1 ]);
   const [textValue, setTextValue] = useState('');
 
-  // const { setGeneration } = useAuthedGlobalContext();
-
-  const router = useRouter();
+  const { setGeneratingState } = useContext(GenerationContext);
 
   const handleInputChange = (event) => {
-    setTextValue(event.target.value);
+      setTextValue(event.target.value);
   };
 
   const generateFromPost = ( e ) => {
-    e.preventDefault();
-    if ( textValue.length > 0 ) {
-      // setGeneration({
-      //   query: 'textValue',
-      //   mood: 'selected.name'
-      // });
-      router.push( '/authed/generate/id2' );
-    } else {
-      console.log('preventing bad generate')
-    }
-    console.log('submitted and generating' , selected , textValue );
+      console.log('submitted and generating' , selected , textValue );
+      e.preventDefault();
+      if ( textValue.length > 0 ) {
+        setData ({
+          query: textValue,
+          mood: selected.name
+        });
+        setGeneratingState( true );
+      } 
+      else {
+        console.log('preventing bad generate')
+      }
   }
 
   return (
-    <div className="flex items-start space-x-4">
+    <div className="flex items-start space-x-4 my-10">
+
       <div className="flex-shrink-0">
         <img className="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
       </div>
+
       <div className="min-w-0 flex-1">
         <form action="#" className="relative" onSubmit={generateFromPost}>
+
           <div className="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
             <label htmlFor="comment" className="sr-only">
               Add your comment
             </label>
             <textarea
-              rows={3}
+              rows={2}
               name="comment"
               id="comment"
               className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
@@ -150,14 +157,9 @@ export default function GenerateComponent( ) {
                 </Listbox>
               </div>
             </div>
-            <div className="flex-shrink-0">
-              <button
-                type="submit"
-                className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Generate ideas
-              </button>
-            </div> 
+
+            <SearchButtonComponent />
+
           </div>
         </form>
       </div>

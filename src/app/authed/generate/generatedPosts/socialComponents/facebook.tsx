@@ -22,7 +22,7 @@ function UserAvatar ( ) {
     )
 }
 
-export default function FacebookPost({ generatedPost , LoggedInAs }) {
+export default function FacebookPost({ generatedPost }) {
     return (
       <div className=" bg-white rounded-lg shadow-md p-5">
 

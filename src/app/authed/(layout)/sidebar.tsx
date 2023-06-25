@@ -3,21 +3,13 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, Cog6ToothIcon, HomeIcon, XMarkIcon, } from '@heroicons/react/24/outline'
-
+import classNames from '@/app/utils/classNames'
 import UserAvatar from '../(clerk)/profile';
+
 
 const navigation = [
   { name: 'Generate', href: '/authed/generate', icon: HomeIcon, current: true }
 ]
-
-const userNavigation = [
-  { name: 'Your profile', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 
 function AppSidebarMenu ( ) {
@@ -41,38 +33,39 @@ function ImageComponent ( { src } ) {
     )
 }
 
-/* === CHAT Component === */
+/* === Other Sidebar Component === */
 function ChatHistory ( ) {
   
     const chats = [
-      { id: 1, name: 'Waves splashing ...', href: '#', initial: 'W', current: false },
-      { id: 2, name: 'New York umbrella ...', href: '#', initial: 'N', current: false },
-      { id: 3, name: 'Field of Roses ...', href: '#', initial: 'F', current: false },
+      { id: 1, name: 'Post 1 ...', href: '#', initial: 'W', current: false },
+      { id: 2, name: 'Post 2 ...', href: '#', initial: 'N', current: false },
+      { id: 3, name: 'Post 3 ...', href: '#', initial: 'F', current: false },
     ]
+
     return (
         <>
-              <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
-              <ul role="list" className="-mx-2 mt-2 space-y-1">
-                {chats.map(( chat ) => (
-                  <li key={ chat.name}>
-                    <a
-                      href={ chat.href}
-                      className={classNames(
-                        chat.current
-                          ? 'bg-gray-800 text-white'
-                          : 'text-gray-400 hover:text-white hover:bg-gray-800',
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                      )}
-                    >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                        {chat.initial}
-                      </span>
-                      <span className="truncate">{chat.name}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-        </>
+            <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+            <ul role="list" className="-mx-2 mt-2 space-y-1">
+              {chats.map(( chat ) => (
+                <li key={ chat.name}>
+                  <a
+                    href={ chat.href}
+                    className={classNames(
+                      chat.current
+                        ? 'bg-gray-800 text-white'
+                        : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                    )}
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
+                      {chat.initial}
+                    </span>
+                    <span className="truncate">{chat.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+      </>
     )
 }
 
