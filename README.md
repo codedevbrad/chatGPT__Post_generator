@@ -4,11 +4,22 @@
 
 
 
-# Endpoints
+## .ENV variables
+| Variable                 | Description                               |
+|--------------------------|-------------------------------------------|
+| NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY | Public key for the Clerk authentication service. |
+| CLERK_SECRET_KEY         | Secret key for the Clerk authentication service. |
+| DATABASE_URL             | URL for the database connection.            |
+| BASE_URL                 | Base URL for the application.               |
+| OPENAI_CREDS             | Credentials for the OpenAI service.         |
 
-## Endpoint: /api/posts/getExamples
 
-### request
+
+## Endpoints
+
+### Endpoint: /api/posts/getExamples
+
+#### request
 Method: POST
 Headers:
 
@@ -21,7 +32,7 @@ Body:
   "style": "casual"
 }
 ```
-### Response
+#### Response
 Status Code: 200 OK
 Body:
 ```javascript

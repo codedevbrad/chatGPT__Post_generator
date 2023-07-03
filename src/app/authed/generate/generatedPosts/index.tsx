@@ -80,9 +80,12 @@ export default function GeneratedComponent({ search }: GeneratedSearchComponentP
   }
 
   return (
-    <div> 
+    <div>         
+
+      <h3 className="text-center my-4"> Like these Ideas ? </h3>
+
       <div className="grid grid-cols-3 gap-4">
-        <h3> Like these Ideas ? </h3>
+
         { data.map((idea: string , index: number ) => (
           <section key={`generatedIndex__${index}`} className="bg-gray-200 p-4">
             <FacebookGenerated generatedPost={idea} />
