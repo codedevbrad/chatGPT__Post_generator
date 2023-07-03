@@ -2,6 +2,15 @@
 # 2023 - Social media post generator with post preview | using chatGPT.
 [![My Skills](https://skills.thijs.gg/icons?i=nextjs,ts,tailwind,postman)](https://skills.thijs.gg)
 
+# SocialGenius
+
+empowers people to effortlessly generate engaging social media post ideas. With the integration of ChatGPT, an advanced language model, this generator provides a seamless experience in crafting compelling social media content.
+
+Key Features:
+
+* Post Preview: Get a glimpse of how your social media posts will look before publishing. Visualize your ideas in real-time and ensure they resonate with your audience.
+* Smart Recommendations: Leverage the power of ChatGPT to receive intelligent suggestions for captivating headlines, catchy phrases, and attention-grabbing hashtags.
+* Save your generated posts to a PDF file.
 
 
 ## .ENV variables
