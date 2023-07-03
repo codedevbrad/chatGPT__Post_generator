@@ -3,7 +3,7 @@ import { GenerationProvider } from './context';
 import GenerateComponent from "./generatePosts"
 import GeneratedComponent from "./generatedPosts"
 import { useState } from 'react'
-import { GeneratedSearchProps } from './props.search';
+import { GeneratedSearchProps } from './props.search'
 
 
 export default function GenerateClient(): JSX.Element {

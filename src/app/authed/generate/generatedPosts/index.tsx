@@ -6,6 +6,10 @@ import { GenerationContext } from '../context';
 
 import { GeneratedSearchComponentProps , GeneratedSearchProps } from "../props.search";
 
+import PrePrompt from "./generateComponents/preprompt";
+import LoadingComponent from "./generateComponents/loading/loading";
+
+
 // Custom hook for fetch request
 const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
 
@@ -55,22 +59,19 @@ const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
 };
 
 
-
 export default function GeneratedComponent({ search }: GeneratedSearchComponentProps ): JSX.Element {
 
   const [data, isLoading] = useFetchData( search );
 
   if (!search) {
     return (
-      <div>
-          <p> start searching </p>
-      </div>
+       <PrePrompt />
     )
   }
 
   if (isLoading) {
     return (
-      <div>Loading...</div>
+       <LoadingComponent />
     )
   }
 
