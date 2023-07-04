@@ -1,34 +1,12 @@
 'use client'
 
-import { SignInButton } from "@clerk/nextjs";
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import AppLogo from "@/app/sharableComponents/logo";
+import AppLogo from "@/app/sharableComponents/logo"
 
-import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
-import IsAuthed from "@/app/authed/(clerk)/isAuthed";
-
-function HeaderAuthAction ( ) {
-    return (
-      <>
-          <IsAuthed />
-          {/* <SignedOut> */}
-            <SignInButton mode='modal'>
-                <button className="cursor-pointer rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  Sign in
-                </button>
-            </SignInButton>
-          {/* </SignedOut>
-          <SignedIn>
-             <a href="#" className="-m-1.5 p-1.5">
-                  To dashboard 
-              </a>
-          </SignedIn> */}
-      </>
-    )
-}
+import HeaderAuthAction from "@/app/authed/(clerk)/loginOrSocial"
 
 
 export default function Header ( ) {

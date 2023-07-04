@@ -2,9 +2,10 @@ import Sidebar from './(layout)/sidebar'
 import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
 import Link from "next/link";
 
+
 export async function generateMetadata({ params }) {
   return {
-    title: 'authed app 2',
+    title: 'SocialGenius dashboard',
     description: 'new data',
   };
 } 

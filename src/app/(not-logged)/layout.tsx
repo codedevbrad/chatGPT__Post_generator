@@ -27,7 +27,7 @@ const footerNavigation = {
 
 export async function generateMetadata({ params }) {
   return {
-    title: 'Trackr - personal budgeting.',
+    title: 'SocialGenius - Generate post ideas',
     description: 'new data',
   };
 } 

@@ -31,7 +31,7 @@ const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
           setData([]);
 
           // fetch request to the API.
-          const { generated } = await makeGeneratedPosts({ searchQuery });
+          const generated = await makeGeneratedPosts({ searchQuery });
 
           // Update state with fetched data and show loading has finished. 
           setData(generated);
