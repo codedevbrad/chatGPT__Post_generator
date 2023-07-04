@@ -1,5 +1,6 @@
-
-<h1 align="center" > SocialGenius </h1>
+<p align="center">
+  <img src="https://github.com/codedevbrad/chatGPT__Post_generator/assets/46296577/75f54e61-6df1-4411-b9e4-4019928a0f8c" alt="Sublime's custom image" />
+</p>
 
 <p align="center">
   <a href="https://skillicons.dev">
