@@ -33,6 +33,12 @@
 
 ---
 
+## Setup
+
+### Clerk auth.
+Clerk.com is an authentication and user management service that simplifies the process of adding user authentication and management to your web applications.
+https://clerk.com/docs/nextjs/get-started-with-nextjs
+
 ## Endpoints
 
 ### Endpoint: /api/posts/getExamples
