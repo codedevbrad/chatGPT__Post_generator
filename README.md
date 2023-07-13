@@ -37,9 +37,13 @@
 
 ### Clerk auth.
 Clerk.com is an authentication and user management service that simplifies the process of adding user authentication and management to your web applications.
-https://clerk.com/docs/nextjs/get-started-with-nextjs
+steps involved.
+1. head to https://dashboard.clerk.com/
+2. add a new application and fill in name and login providers.
+3. Select NextJs from the quickstart and Copy the API keys to .env file.
 
 ## Endpoints
+
 
 ### Endpoint: /api/posts/getExamples
 
