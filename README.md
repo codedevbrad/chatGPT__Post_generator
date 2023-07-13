@@ -51,9 +51,9 @@ steps involved to setup.
 
 
 ## Endpoints
+ 
 
-
-### Endpoint: /api/posts/getExamples
+### Endpoint: /api/generate/postIdeas
 
 #### request
 Method: POST
@@ -64,22 +64,15 @@ Authorization: (none for now)
 Body:
 ```javascript
 {
-  "generateIdea": "Summer Vacation",
-  "style": "casual"
+  "query": "Summer Vacation",
+   "mood": "casual"
 }
 ```
 #### Response
 Status Code: 200 OK
 Body:
 ```javascript
-[
-    {
-        "message": {
-            "role": "assistant",
-            "content": "1. ❄️ Winter is here and we've got the coziest jumpers to keep you warm! 😍\n2. 🐑 Double tap if you need this sheepskin jumper in your life! 😍\n3. 🤩 Who says you can't be stylish AND warm this winter? Check out our sheepskin jumpers! \n4. 🔥 Our sheepskin jumpers will have you feeling cozy and looking 🔥! \n5. 🌧️ Keep the rain and cold at bay with our latest collection of sheepskin jumpers! ☔\n6. 🙌 We're excited to announce our new arrival of sheepskin jumpers! \n7. 🧥 Say goodbye to stiff and unforgiving winter jackets, and hello to the softest sheepskin jumpers! \n8. 💥 Can we just take a moment to appreciate how cute AND functional our sheepskin jumpers are?! 😍\n9. 🌡️ Don't let the winter chill bring you down! Shop our sheepskin jumpers to stay comfy all day long! \n10. 🐏 Our sheepskin jumpers are made from the finest materials, so you can tackle winter in style!"
-        },
-        "finish_reason": "stop",
-        "index": 0
-    },
-```
+  [
 
+  ]
+```

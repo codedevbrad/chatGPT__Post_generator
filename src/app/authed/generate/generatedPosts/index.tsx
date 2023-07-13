@@ -14,7 +14,7 @@ import LoadingComponent from "./generateComponents/loading/loading";
 const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
 
   // used to change the generatePosts component button back to initial state.
-  const { setGeneratingState } = useContext(GenerationContext);
+  const { setGeneratingBackToInitial } = useContext(GenerationContext);
   // data and loading state's for fetching.
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,8 @@ const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
           // Update state with fetched data and show loading has finished. 
           setData(generated);
           setIsLoading(false);
-          setGeneratingState(false);
+          // Lets previous generateComponent reset the button back to initial state.
+          setGeneratingBackToInitial();
         } 
         else {
           console.log('when state is false');

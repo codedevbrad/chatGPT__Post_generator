@@ -1,5 +1,13 @@
 import fs from 'fs';
 
+type UserOperationTypes = {
+  createUser(userId: string, isNewUser: boolean): any;
+  getUsers(): any[];
+  getUserById(userId: string): any | undefined;
+  updateUser(userId: string, isNewUser: boolean): any | undefined;
+  deleteUser(userId: string): boolean;
+}
+
 interface User {
   userId: string;
   isNewUser: boolean;
@@ -54,5 +62,4 @@ class FakeUserDatabase {
   }
 }
 
-// Example usage:
 export const usersDb = new FakeUserDatabase('users.json');
