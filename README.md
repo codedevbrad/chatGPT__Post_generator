@@ -42,6 +42,14 @@ steps involved.
 2. add a new application and fill in name and login providers.
 3. Select NextJs from the quickstart and Copy the API keys to .env file.
 
+### Open a.i
+ChatGPT which is the sibling model to InstructGPT, is a form of generative AI -- a tool that lets users enter prompts to receive humanlike images and text. We use this tool to generate the social media post ideas.
+steps involved to setup.
+1. head to https://openai.com/ and signup.
+2. navigate to https://platform.openai.com/account/api-keys and generate a new secret key.
+3. paste the key into the .env with the appropriate key name.
+
+
 ## Endpoints
 
 

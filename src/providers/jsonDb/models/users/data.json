@@ -1,0 +1,14 @@
+[
+    {
+      "userId": "user1",
+      "isNewUser": false
+    },
+    {
+      "userId": "user2",
+      "isNewUser": true
+    },
+    {
+      "userId": "user3",
+      "isNewUser": false
+    }
+]

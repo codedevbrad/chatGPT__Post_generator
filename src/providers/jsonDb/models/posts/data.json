@@ -1,0 +1,18 @@
+[
+    {
+      "userId": "user1",
+      "postText": "Exciting news! Our brand-new restaurant 'Savory Bites' is now open! Indulge in a culinary journey with our delectable dishes and cozy ambiance. Join us today and experience food like never before! 🍽️🍷 #SavoryBites",
+      "generatedFrom": "Facebook"
+    },
+    {
+      "userId": "user1",
+      "postText": "Attention fitness enthusiasts! Say hello to 'ActiveLife Gym,' your ultimate destination for achieving your fitness goals. Our state-of-the-art facilities, expert trainers, and personalized workout plans are here to help you transform your body and lead a healthy lifestyle. Join us and unleash your full potential! 💪🏋️‍♀️ #ActiveLifeGym",
+      "generatedFrom": "Instagram"
+    },
+    {
+      "userId": "user2",
+      "postText": "Calling all fashionistas! 'ChicStyle Boutique' is your go-to destination for the latest trends and chic outfits. From casual wear to elegant evening dresses, we've got you covered. Step into our boutique and let your style shine! ✨👗 #ChicStyleBoutique",
+      "generatedFrom": "Twitter"
+    }
+  ]
+  
