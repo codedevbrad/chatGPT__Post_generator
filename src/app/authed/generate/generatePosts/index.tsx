@@ -5,6 +5,8 @@ import { Listbox, Transition } from '@headlessui/react';
 import classNames from '@/app/utils/classNames';
 import { moods } from './moods'
 import { GenerationContext } from '../context';
+import Guide from '@/app/(guideTour)'
+
 
 function Loader ( ) {
     return (
@@ -173,7 +175,9 @@ export default function GenerateComponent( { setData } ) {
               </div>
             </div>
 
-            <SearchButtonComponent />
+            <Guide>
+                <SearchButtonComponent />
+            </Guide>
 
           </div>
         </form>

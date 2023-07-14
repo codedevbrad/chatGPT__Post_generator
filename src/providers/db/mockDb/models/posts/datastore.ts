@@ -1,4 +1,5 @@
-import fs from 'fs';
+import { loadFromJsonFile } from '../../utils/loadFromJson'
+let jsonFilePathLoc = './data.json'
 
 interface Post {
   userId: string;
@@ -14,12 +15,7 @@ class FakeDatabase {
   }
 
   private loadPostsFromJson(jsonFilePath: string): void {
-    try {
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf-8');
-      this.posts = JSON.parse(jsonData);
-    } catch (error) {
-      console.error(`Failed to load JSON file: ${error}`);
-    }
+      this.posts = loadFromJsonFile(jsonFilePath);
   }
 
   createPost(userId: string, postText: string, generatedFrom: string): Post {
@@ -54,8 +50,15 @@ class FakeDatabase {
     }
     return false;
   }
+
+  resetPostsToOriginal( ): void {
+    this.loadPostsFromJson( jsonFilePathLoc );
+  }
+
+  removeAllPosts(): void {
+    this.posts = [];
+  }
 }
 
 // Example usage:
-export const postsDb = new FakeDatabase('data.json');
-
+export const postsDb = new FakeDatabase( jsonFilePathLoc );

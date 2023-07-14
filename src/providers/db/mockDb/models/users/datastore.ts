@@ -1,12 +1,6 @@
-import fs from 'fs';
+import { loadFromJsonFile } from '../../utils/loadFromJson'
+let jsonFilePathLoc = './data.json'
 
-type UserOperationTypes = {
-  createUser(userId: string, isNewUser: boolean): any;
-  getUsers(): any[];
-  getUserById(userId: string): any | undefined;
-  updateUser(userId: string, isNewUser: boolean): any | undefined;
-  deleteUser(userId: string): boolean;
-}
 
 interface User {
   userId: string;
@@ -21,12 +15,7 @@ class FakeUserDatabase {
   }
 
   private loadUsersFromJson(jsonFilePath: string): void {
-    try {
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf-8');
-      this.users = JSON.parse(jsonData);
-    } catch (error) {
-      console.error(`Failed to load JSON file: ${error}`);
-    }
+    this.users = loadFromJsonFile(jsonFilePath);
   }
 
   createUser(userId: string, isNewUser: boolean): User {
@@ -60,6 +49,14 @@ class FakeUserDatabase {
     }
     return false;
   }
+
+  resetUsersToOriginal( ): void {
+    this.loadUsersFromJson( jsonFilePathLoc );
+  }
+
+  removeAllUsers(): void {
+    this.users = [];
+  }
 }
 
-export const usersDb = new FakeUserDatabase('users.json');
+export const usersDb = new FakeUserDatabase( jsonFilePathLoc );
