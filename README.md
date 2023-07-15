@@ -8,9 +8,14 @@
   </a>
 </p>
 
-<div>
+<div align="center">
   Empowers people to effortlessly generate engaging social media post ideas. With the integration of ChatGPT, an advanced language model, this generator provides a seamless experience in crafting compelling social media content.
+</div>
 
+<br />
+<br />
+
+<div>
   Key Features:
   
   * Post Preview: Get a glimpse of how your social media posts will look before publishing. Visualize your ideas in real-time and ensure they resonate with your audience.
