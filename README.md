@@ -23,7 +23,15 @@
   * Save your generated posts to a PDF file.
 </div>
 
----
+<br />
+
+## What needs to be done.
+- [x] ...
+- [ ] ...
+
+
+<br />
+<br />
 
 
 ## .ENV variables
