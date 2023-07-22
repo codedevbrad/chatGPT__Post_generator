@@ -26,8 +26,11 @@
 <br />
 
 ## What needs to be done.
-- [x] ...
-- [ ] ...
+- [x] Generate social media post ideas from a text and mood prompt.
+- [ ] create a step by step tour for new users.
+- [ ] apply Jest tests to MockDb.
+- [ ] Ability to like generated posts and see on your dashboard.
+- [ ] Save PDF of generated posts.
 
 
 <br />
