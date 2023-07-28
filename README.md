@@ -8,9 +8,14 @@
   </a>
 </p>
 
-<div>
+<div align="center">
   Empowers people to effortlessly generate engaging social media post ideas. With the integration of ChatGPT, an advanced language model, this generator provides a seamless experience in crafting compelling social media content.
+</div>
 
+<br />
+<br />
+
+<div>
   Key Features:
   
   * Post Preview: Get a glimpse of how your social media posts will look before publishing. Visualize your ideas in real-time and ensure they resonate with your audience.
@@ -18,7 +23,18 @@
   * Save your generated posts to a PDF file.
 </div>
 
----
+<br />
+
+## What needs to be done.
+- [x] Generate social media post ideas from a text and mood prompt.
+- [ ] create a step by step tour for new users.
+- [ ] apply Jest tests to MockDb.
+- [ ] Ability to like generated posts and see on your dashboard.
+- [ ] Save PDF of generated posts.
+
+
+<br />
+<br />
 
 
 ## .ENV variables
