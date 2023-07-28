@@ -2,14 +2,11 @@
 
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, Cog6ToothIcon, HomeIcon, XMarkIcon, } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, Cog6ToothIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 import classNames from '@/app/utils/classNames'
 import UserAvatar from '../(clerk)/profile';
 
-
-const navigation = [
-  { name: 'Generate', href: '/authed/generate', icon: HomeIcon, current: true }
-]
+import { navigation } from '../data'
 
 
 function AppSidebarMenu ( ) {
@@ -33,34 +30,37 @@ function ImageComponent ( { src } ) {
     )
 }
 
+
 /* === Other Sidebar Component === */
-function ChatHistory ( ) {
+function PostHistory ( ) {
   
-    const chats = [
-      { id: 1, name: 'Post 1 ...', href: '#', initial: 'W', current: false },
-      { id: 2, name: 'Post 2 ...', href: '#', initial: 'N', current: false },
-      { id: 3, name: 'Post 3 ...', href: '#', initial: 'F', current: false },
+    const posts = [
+      { id: 1, name: 'Come up with post ideas for my travel agency advertising for someone Dreaming of an unforgettable vacation.', href: '#', initial: 'W', current: false },
+      { id: 2, name: 'Show me some ideas for my fitness Business. I want to get new users pumped and interested in working out.', href: '#', initial: 'N', current: false },
+      { id: 3, name: 'I need some post ideas for my E-Commerce store that sells Tshirts. Make sure to add that there is limited stock.', href: '#', initial: 'F', current: false },
     ]
 
     return (
         <>
-            <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+            <div className="text-xs font-semibold leading-6 text-gray-400">
+                Post search History
+            </div>
             <ul role="list" className="-mx-2 mt-2 space-y-1">
-              {chats.map(( chat ) => (
-                <li key={ chat.name}>
+              {posts.map(( post ) => (
+                <li key={ post.name}>
                   <a
-                    href={ chat.href}
+                    href={ post.href}
                     className={classNames(
-                      chat.current
+                      post.current
                         ? 'bg-gray-800 text-white'
                         : 'text-gray-400 hover:text-white hover:bg-gray-800',
                       'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                     )}
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">
-                      {chat.initial}
+                      {post.initial}
                     </span>
-                    <span className="truncate">{chat.name}</span>
+                    <span className="truncate">{post.name}</span>
                   </a>
                 </li>
               ))}
@@ -140,7 +140,7 @@ function MobileSidebarView ( { sidebarOpen, setSidebarOpen } ) {
                           </ul>
                         </li>
                         <li>
-                            <ChatHistory />
+                            <PostHistory />
                         </li>
                         <li className="mt-auto">
                           <a
@@ -178,7 +178,7 @@ function DesktopSidebarView ( ) {
                         <AppSidebarMenu />
                     </li>
                     <li>
-                        <ChatHistory />
+                        <PostHistory />
                     </li>
                     <li className="mt-auto">
                       <a href="#" className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white">
