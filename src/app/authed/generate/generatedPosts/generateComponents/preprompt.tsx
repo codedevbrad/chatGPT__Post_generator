@@ -72,8 +72,8 @@ export default function PrePrompt ( ) {
 
     return (
         <div className="flex flex-col items-center">
-            <h3> Ready to unlock your creativity? </h3>
-            <h4 className="mt-3"> Here's some ideas for you... </h4> 
+            <h3 className="dark:text-white"> Ready to unlock your creativity? </h3>
+            <h4 className="mt-3 dark:text-white"> Here's some ideas for you... </h4> 
 
             <div className="grid grid-cols-3 gap-4">
                 { ideas.map( ( idea , index ) =>

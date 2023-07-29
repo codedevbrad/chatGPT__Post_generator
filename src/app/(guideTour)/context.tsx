@@ -5,12 +5,14 @@ interface Step {
   title: string;
   explanation: string;
   id: string;
+  action: () => void;
 }
 
 interface GuideContextType {
   currentStep: number;
   steps: Step[];
   show: boolean;
+  currentStepObj: object
   updateGuideStep: (step: number) => void;
   updateGuideShow: (show: boolean) => void;
   handlePreviousStep: (show: number) => void;
@@ -23,11 +25,12 @@ export const GuideContext = createContext<GuideContextType>({
   currentStep: 0,
   steps: [],
   show: false,
+  currentStepObj: {},
   updateGuideStep: () => {},
   updateGuideShow: () => {},
   handlePreviousStep: () => {},
   handleNextStep: () => {},
-  completeTour: () => {}
+  completeTour: () => {},
 });
 
 
@@ -37,40 +40,40 @@ interface GuideProviderProps {
 
 
 const GuideProvider: React.FC<GuideProviderProps> = ({ children }) => {
-  const [ currentStep, setCurrentStep ] = useState(0);
-  const [ show, setShow ] = useState(false);
+  const [ currentStep, setCurrentStep ] = useState(-1);
+  const [ show, setShow ] = useState(true);
 
   const [ steps , updateSteps ] = useState([
     {
-      title: 'Need a tour?',
-      explanation: 'see the steps needed to ge',
+      explanation: 'Write your prompt!',
       id: '12345'
     },
     {
-      title: 'Step 1',
-      explanation: 'Explanation for Step 1',
-      id: '12345'
-    },
-    {
-      title: 'Step 2',
-      explanation: 'Explanation for Step 2',
+      explanation: 'open the emoji box and choose the emotion you want your post to use!',
       id: '23456'
     },
     {
-      title: 'All done',
-      explanation: 'Youre all set to start generating posts.',
+      explanation: 'click to generate your ideas',
+      id: '23456',
+      action: ( ) => {
+         console.log('clicked');
+         handleNextStep();
+      }
+    },
+    {
+      explanation: 'Wait for the app to generate your ideas.',
+      id: '23456'
+    },
+    {
+      explanation: 'see the great ideas we generated for you.',
       id: '23456'
     }
   ]);
 
-  const setWelcomeTour = ( welcomeObj: object ) => {
-
-  };
+  const currentStepObj = steps[ currentStep ];
 
   const updateGuideStep = (step: number) => {
-    if (step >= 0 && step <= steps.length - 1) {
-      setCurrentStep(step);
-    }
+    setCurrentStep(step);
   };
 
   const handlePreviousStep = () => {
@@ -80,8 +83,9 @@ const GuideProvider: React.FC<GuideProviderProps> = ({ children }) => {
   };
 
   const handleNextStep = () => {
-    if (currentStep < steps.length - 1) {
+    if (currentStep < steps.length) {
       updateGuideStep(currentStep + 1);
+      console.log('next step');
     }
   };
 
@@ -91,10 +95,11 @@ const GuideProvider: React.FC<GuideProviderProps> = ({ children }) => {
 
   const completeTour = (show: boolean) => {
     setShow(false);
+    setCurrentStep( -1 );
   };
 
   return (
-    <GuideContext.Provider value={{ currentStep, steps, show, updateGuideStep, updateGuideShow, handlePreviousStep, handleNextStep, completeTour }}>
+    <GuideContext.Provider value={{ currentStepObj , currentStep, steps, show, updateGuideStep, updateGuideShow, handlePreviousStep, handleNextStep, completeTour }}>
       {children}
     </GuideContext.Provider>
   );

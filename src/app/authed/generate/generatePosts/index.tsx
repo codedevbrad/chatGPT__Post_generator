@@ -83,7 +83,7 @@ export default function GenerateComponent( { setData } ) {
                 rows={2}
                 name="comment"
                 id="comment"
-                className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="for a sheepskin company trying to sell a new product line of jumpers"
                 value={textValue}
                 onChange={handleInputChange}
@@ -100,6 +100,7 @@ export default function GenerateComponent( { setData } ) {
 
               <div className="flex items-center space-x-5">
             
+              <Guide stepInGuide={2}>
                 <div className="flex items-center">
                   <Listbox value={selected} onChange={setSelected}>
                     {({ open }) => (
@@ -171,9 +172,10 @@ export default function GenerateComponent( { setData } ) {
                     )}
                   </Listbox>
                 </div>
+                </Guide>
               </div>
 
-              <Guide stepInGuide={2}>
+              <Guide stepInGuide={3}>
                   <SearchButtonComponent />
               </Guide>
 

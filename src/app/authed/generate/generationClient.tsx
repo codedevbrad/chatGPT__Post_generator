@@ -13,7 +13,7 @@ export default function GenerateClient(): JSX.Element {
     return (
       <div>
         <GenerationProvider>
-            <h1 className="text-lg">Generate social media post ideas.</h1>
+            <h1 className="text-lg dark:text-white">Generate social media post ideas.</h1>
                 <GenerateComponent setData={setSearch} />
                 <GeneratedComponent search={search} />
         </GenerationProvider>

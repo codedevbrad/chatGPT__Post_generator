@@ -5,8 +5,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, Cog6ToothIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 import classNames from '@/app/utils/classNames'
 import UserAvatar from '../(clerk)/profile';
-
 import { navigation } from '../data'
+import ThemeSwitch from '@/app/(themeSwitch)/themeSwitcher'
 
 
 function AppSidebarMenu ( ) {
@@ -45,6 +45,7 @@ function PostHistory ( ) {
             <div className="text-xs font-semibold leading-6 text-gray-400">
                 Post search History
             </div>
+
             <ul role="list" className="-mx-2 mt-2 space-y-1">
               {posts.map(( post ) => (
                 <li key={ post.name}>
@@ -180,12 +181,6 @@ function DesktopSidebarView ( ) {
                     <li>
                         <PostHistory />
                     </li>
-                    <li className="mt-auto">
-                      <a href="#" className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white">
-                        <Cog6ToothIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
-                        Settings
-                      </a>
-                    </li>
                   </ul>
                 </nav>
               </div>
@@ -194,12 +189,16 @@ function DesktopSidebarView ( ) {
     )
 }
 
+
 function SidebarTop ( ) {
     return (
         <>
-            <div className="flex flex-1 justify-end gap-x-4 self-stretch lg:gap-x-6">
+            <div className="bg-white dark:bg-inherit flex flex-1 justify-end gap-x-4 self-stretch lg:gap-x-6">
               
               <div className="flex items-center gap-x-4 lg:gap-x-6">
+
+                <ThemeSwitch />
+
                 <button type="button" className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -234,7 +233,7 @@ export default function Sidebar({ children }) {
 
           { /* top bar */ }
 
-          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 px-4  sm:gap-x-6 sm:px-6 lg:px-8">
             
               { /* menu to toggle sidbar viewable in mobile */ }
               <button type="button" className="-m-2.5 p-2.5 text-gray-700 lg:hidden" onClick={() => setSidebarOpen(true)}>

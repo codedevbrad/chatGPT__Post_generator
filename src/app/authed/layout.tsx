@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
 
 export default function AuthedLayout({ children, }: { children: React.ReactNode, }) {
     return (
-          <body className='h-full scrollbar-hide'>   
+          <body className='h-full scrollbar-hid dark:bg-black'>   
                 <SignedIn>
                   <Sidebar>
                      <GuideProvider>

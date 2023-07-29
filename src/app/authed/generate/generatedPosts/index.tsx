@@ -1,18 +1,19 @@
 'use client'
-import makeGeneratedPosts from "./utils/fetchData";
-import FacebookGenerated from './socialComponents/facebook'; 
-import { useState, useEffect, useContext } from "react";
-import { GenerationContext } from '../context';
+import makeGeneratedPosts from "./utils/fetchData"
+import FacebookGenerated from './socialComponents/facebook'
+import { useState, useEffect, useContext } from "react"
+import { GenerationContext } from '../context'
 
-import { GeneratedSearchComponentProps , GeneratedSearchProps } from "../props.search";
+import { GeneratedSearchComponentProps , GeneratedSearchProps } from "../props.search"
 
-import PrePrompt from "./generateComponents/preprompt";
-import LoadingComponent from "./generateComponents/loading/loading";
+import PrePrompt from "./generateComponents/preprompt"
+import LoadingComponent from "./generateComponents/loading/loading"
+
+import Guide from "@/app/(guideTour)/guide"
 
 
 // Custom hook for fetch request
 const useFetchData = ( searchQuery: GeneratedSearchProps ) => {
-
   // used to change the generatePosts component button back to initial state.
   const { setGeneratingBackToInitial } = useContext(GenerationContext);
   // data and loading state's for fetching.
@@ -72,7 +73,9 @@ export default function GeneratedComponent({ search }: GeneratedSearchComponentP
 
   if (isLoading) {
     return (
-       <LoadingComponent />
+      <Guide stepInGuide={4}>
+        <LoadingComponent />
+      </Guide>
     )
   }
 
@@ -82,17 +85,22 @@ export default function GeneratedComponent({ search }: GeneratedSearchComponentP
 
   return (
     <div>         
+        <h3 className="text-center my-4 dark:text-white"> Like these Ideas ? </h3>
 
-      <h3 className="text-center my-4"> Like these Ideas ? </h3>
+        <div className="flex justify-center">
+          why not save these to a pdf?
+        </div>
 
-      <div className="grid grid-cols-3 gap-4">
-
-        { data.map((idea: string , index: number ) => (
-          <section key={`generatedIndex__${index}`} className="bg-gray-200 p-4">
-            <FacebookGenerated generatedPost={idea} />
-          </section>
-        )) }
-      </div>
+        <Guide stepInGuide={5}>
+            <div className="grid grid-cols-4 gap-4">
+              { data.map((idea: string , index: number ) => (
+                <section key={`generatedIndex__${index}`} className=" p-4">
+                  <FacebookGenerated generatedPost={idea} />
+                </section>
+              )) }
+            </div>
+        </Guide>
+     
     </div>
   );
 }
