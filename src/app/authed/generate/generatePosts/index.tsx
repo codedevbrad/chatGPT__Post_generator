@@ -24,22 +24,6 @@ function Loader ( ) {
 }
 
 
-function SearchButtonComponent ( ) {
-  
-  const { generationState } = useContext(GenerationContext);
-
-  return (
-    <div className="flex-shrink-0">
-      <button
-        type="submit"
-        className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-         { !generationState ? 'Generate ideas' :  <Loader />  }
-      </button>
-    </div> 
-  )
-}
-
 
 export default function GenerateComponent( { setData } ) {
   const [selected, setSelected] = useState(moods[ moods.length - 1 ]);
@@ -51,9 +35,8 @@ export default function GenerateComponent( { setData } ) {
       setTextValue(event.target.value);
   };
 
-  const generateFromPost = ( e ) => {
+  const generateFromPost = ( ) => {
       console.log('submitted and generating' , selected , textValue );
-      e.preventDefault();
       if ( textValue.length > 0 ) {
         setData ({
           query: textValue,
@@ -66,6 +49,21 @@ export default function GenerateComponent( { setData } ) {
       }
   }
 
+  function SearchButtonComponent ( ) {
+  
+    const { generationState } = useContext(GenerationContext);
+  
+    return (
+      <div className="flex-shrink-0">
+        <div onClick={ () => generateFromPost() }
+          className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+           { !generationState ? 'Generate ideas' :  <Loader />  }
+        </div>
+      </div> 
+    )
+  }
+
   return (
 
     <Guide stepInGuide={1}>
@@ -76,9 +74,10 @@ export default function GenerateComponent( { setData } ) {
         </div>
 
         <div className="min-w-0 flex-1">
-          <form action="#" className="relative" onSubmit={generateFromPost}>
+          <div className="relative">
 
             <div className="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
+
               <textarea
                 rows={2}
                 name="comment"
@@ -94,6 +93,7 @@ export default function GenerateComponent( { setData } ) {
                   <div className="h-9" />
                 </div>
               </div>
+
             </div>
 
             <div className="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">
@@ -180,7 +180,7 @@ export default function GenerateComponent( { setData } ) {
               </Guide>
 
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </Guide>

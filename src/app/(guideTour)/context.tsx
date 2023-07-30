@@ -15,9 +15,9 @@ interface GuideContextType {
   currentStepObj: object
   updateGuideStep: (step: number) => void;
   updateGuideShow: (show: boolean) => void;
-  handlePreviousStep: (show: number) => void;
-  handleNextStep: (show: number) => void;
-  completeTour: (show: boolean) => void;
+  handlePreviousStep: () => void;
+  handleNextStep: () => void;
+  completeTour: () => void;
 }
 
 
@@ -55,10 +55,7 @@ const GuideProvider: React.FC<GuideProviderProps> = ({ children }) => {
     {
       explanation: 'click to generate your ideas',
       id: '23456',
-      action: ( ) => {
-         console.log('clicked');
-         handleNextStep();
-      }
+      action: 'nextStep'
     },
     {
       explanation: 'Wait for the app to generate your ideas.',
@@ -93,7 +90,7 @@ const GuideProvider: React.FC<GuideProviderProps> = ({ children }) => {
     setShow(show);
   };
 
-  const completeTour = (show: boolean) => {
+  const completeTour = () => {
     setShow(false);
     setCurrentStep( -1 );
   };

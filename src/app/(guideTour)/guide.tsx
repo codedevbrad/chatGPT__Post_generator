@@ -8,19 +8,22 @@ interface GuideProps {
 
 const Guide: React.FC<GuideProps> = ({ children , stepInGuide = -1 }) => {
   const [ showBackdrop, setShowBackdrop ] = useState<boolean>(true);
-  const { currentStepObj , currentStep } = useContext( GuideContext );
+  const { handleNextStep, currentStepObj , currentStep } = useContext( GuideContext );
 
   const action = ( ) => {
-    if ( currentStepObj.action ) {
-      currentStepObj.action()
+    if ( currentStepObj.action == 'nextStep' ) {
+      handleNextStep();
+    } 
+    else if (  !currentStepObj.action ) {
+
     }
   }
 
   return (
-    <>
+    <div onClick={ action }>
       { showBackdrop && stepInGuide == ( currentStep + 1 ) ? (
         <>
-            <div className='z-50 bg-white relative border-2 border-black shadow-2xl rounded-sm p-2' onClick={ action }>
+            <div className='z-50 bg-white relative border-2 border-black shadow-2xl rounded-sm p-2'>
               {children} 
             </div>
         </>
@@ -30,7 +33,7 @@ const Guide: React.FC<GuideProps> = ({ children , stepInGuide = -1 }) => {
           {children} 
         </>
       )}
-    </>
+    </div>
   );
 };
 

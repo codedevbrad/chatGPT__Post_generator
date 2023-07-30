@@ -1,9 +1,8 @@
 'use client'
-import React, { useState, useContext, useEffect } from 'react'
-import { GuideContext } from './context'
+import React, { useContext , useState } from 'react'
+import { GuideContext }  from './context'
 
-
-const GuideTour = () => {
+const GuideTour = ({ welcome }) => {
 
   const { show, steps, currentStep, handlePreviousStep, handleNextStep, completeTour } = useContext(GuideContext);
 
@@ -25,7 +24,7 @@ const GuideTour = () => {
 
 
   const clickToCompleteTour = ( ) => {
-
+    completeTour();
   }
 
   return (
@@ -84,7 +83,7 @@ const GuideTour = () => {
                     ) : <div> </div> }
 
                     { shouldShowComplete && 
-                      <button className="px-4 py-2 bg-blue-500 text-white rounded-md" onClick={ handleNextStep }>
+                      <button className="px-4 py-2 bg-blue-500 text-white rounded-md" onClick={ clickToCompleteTour }>
                             Finish
                       </button>
                     }

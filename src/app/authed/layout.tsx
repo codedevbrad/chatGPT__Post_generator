@@ -17,7 +17,7 @@ export default function AuthedLayout({ children, }: { children: React.ReactNode,
                 <SignedIn>
                   <Sidebar>
                      <GuideProvider>
-                        <main className={'flex-col flex min-h-screen'}>
+                        <main className={'flex-col flex'}>
                               {children}
                               <GuideTour />
                         </main>   

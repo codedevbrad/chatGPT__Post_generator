@@ -223,13 +223,13 @@ export default function Sidebar({ children }) {
 
   return (
     <>
-      <div>
+      <div className="h-full">
 
         <MobileSidebarView sidebarOpen={ sidebarOpen } setSidebarOpen={ setSidebarOpen } />
 
         <DesktopSidebarView />
 
-        <div className="lg:pl-72">
+        <div className="lg:pl-72 h-full">
 
           { /* top bar */ }
 
@@ -245,7 +245,7 @@ export default function Sidebar({ children }) {
 
           </div>
 
-          <main className="py-10">
+          <main className="py-10 h-full">
             <div className="px-4 sm:px-6 lg:px-8">
                 { children }
             </div>

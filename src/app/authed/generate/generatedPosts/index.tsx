@@ -65,13 +65,13 @@ export default function GeneratedComponent({ search }: GeneratedSearchComponentP
 
   const [data, isLoading] = useFetchData( search );
 
-  if (!search) {
+  if ( !search ) {
     return (
        <PrePrompt />
     )
   }
 
-  if (isLoading) {
+  if ( isLoading ) {
     return (
       <Guide stepInGuide={4}>
         <LoadingComponent />
