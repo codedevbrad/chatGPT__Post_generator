@@ -63,10 +63,10 @@ const Card = ({ prompt, mood, index }) => {
 export default function PrePrompt ( ) {
 
     const [ ideas , setIdeas ] = useState([
-        { text: 'come up with post ideas for my travel agency advertising for someone Dreaming of an unforgettable vacation.' },
-        { text: 'Show me some ideas for my fitness Business. I want to get new users pumped and interested in working out.' },
-        { text: 'I need some post ideas for my E-Commerce store that sells Tshirts. Make sure to add that there is limited stock.' },
-        { text: 'Think of some ideas for my BBQ restuarant that serves amazing steak.' }
+        { text: 'for my travel agency advertising for someone Dreaming of an unforgettable vacation.' },
+        { text: 'for my fitness Business. I want to get new users pumped and interested in working out.' },
+        { text: 'for my E-Commerce store that sells Tshirts. Make sure to add that there is limited stock.' },
+        { text: 'that will captivate a new audience to visit my Etsy clothing shop.' }
     ]);
 
 

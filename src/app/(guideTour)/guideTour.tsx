@@ -29,7 +29,7 @@ const GuideTour = ({ welcome }) => {
 
   return (
     <>
-      { show && 
+      { !show && 
           <> 
               <div className="fixed inset-0 bg-red-500 bg-opacity-30 flex items-center justify-center z-40"> </div>
 

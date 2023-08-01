@@ -7,7 +7,6 @@ import { moods } from './moods'
 import { GenerationContext } from '../context'
 import Guide from '@/app/(guideTour)/guide'
 
-
 function Loader ( ) {
     return (
       <>
@@ -22,7 +21,6 @@ function Loader ( ) {
       </>
     )
 }
-
 
 
 export default function GenerateComponent( { setData } ) {
@@ -67,7 +65,7 @@ export default function GenerateComponent( { setData } ) {
   return (
 
     <Guide stepInGuide={1}>
-      <div className="flex items-start space-x-4 my-10">
+      <div className="flex items-start space-x-4 my-10 shadow-md px-4 py-7 rounded-2xl dark:bg-slate-900">
 
         <div className="flex-shrink-0">
           <img className="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
@@ -76,14 +74,16 @@ export default function GenerateComponent( { setData } ) {
         <div className="min-w-0 flex-1">
           <div className="relative">
 
-            <div className="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
+            <div className="overflow-hidden rounded-lg">
+
+              <h2 className="p-3 dark:text-white"> I need ideas ... </h2>
 
               <textarea
                 rows={2}
                 name="comment"
                 id="comment"
                 className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                placeholder="for a sheepskin company trying to sell a new product line of jumpers"
+                placeholder="For my sheepskin company trying to sell a new product line of jumpers"
                 value={textValue}
                 onChange={handleInputChange}
               />
