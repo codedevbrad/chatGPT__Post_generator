@@ -8,6 +8,7 @@ import { GeneratedSearchComponentProps , GeneratedSearchProps } from "../props.s
 
 import PrePrompt from "./generateComponents/preprompt"
 import LoadingComponent from "./generateComponents/loading/loading"
+import EditGeneration from "./edit"
 
 import Guide from "@/app/(guideTour)/guide"
 
@@ -87,8 +88,12 @@ export default function GeneratedComponent({ search }: GeneratedSearchComponentP
     <div>         
         <h3 className="text-center my-4 dark:text-white"> Like these Ideas ? </h3>
 
-        <div className="flex justify-center">
-          why not save these to a pdf?
+        <div className="flex flex-row justify-center content-center my-4">
+            <ul className="rounded-md bg-slate-100 p-4 flex flex-row">
+                { [ 'Unforgettable vacation' , 'dreamlike' , 'vacation' ].map( ( item ) => 
+                    <li key={ `hashtag_${ item }` } className="m-2"> #{ item } </li>
+                )}
+            </ul> 
         </div>
 
         <Guide stepInGuide={5}>
